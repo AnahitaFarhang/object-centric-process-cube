@@ -23,7 +23,7 @@ Tkreadonly 0.6.1
 ```
 
 ## Usage
-To run the programe, you need only to run the [main module](https://github.com/AnahitaFarhang/object-centric-process-cube/blob/main/requirements.txt).
+To run the programe, you need only to run the [main module](https://github.com/AnahitaFarhang/object-centric-process-cube/blob/main/main.py).
 
 
 
