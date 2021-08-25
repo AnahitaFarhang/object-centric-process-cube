@@ -8,17 +8,18 @@ from output.MVP_performance import MVP_performance
 from output.object_centric_petrinet import object_centric_petrinet
 
 class wizard_operations():
-    def __init__(self, root, scrollable_frame_cubeview, scrollable_frame_cubeview2, scrollable_frame_model, scrollable_frame_model2, canvasmodel, canvasmodel2, cubesdic,df,obj_df):
+    def __init__(self, root, cubeview_frame, cubeview_frame2, result_frame, result_frame2, result_canvas, result_canvas2,
+                 cubesdic,df,obj_df):
         #overviewframe1
         self.dfccbx=[]; self.dfccbx2=[]
-        self.root=root;self.canvasmodel=canvasmodel;
-        self.scrollable_frame_cubeview=scrollable_frame_cubeview;self.df=df;self.obj_df=obj_df
-        self.scrollable_frame_model=scrollable_frame_model
-        for widget in self.scrollable_frame_cubeview.winfo_children():
+        self.root=root;self.result_canvas=result_canvas;
+        self.cubeview_frame=cubeview_frame;self.df=df;self.obj_df=obj_df
+        self.result_frame=result_frame
+        for widget in self.cubeview_frame.winfo_children():
             widget.destroy()
-        label = Label(self.scrollable_frame_cubeview, text=""); label.grid(row=0,column=0)
+        label = Label(self.cubeview_frame, text=""); label.grid(row=0,column=0)
 
-        self.cubeaddress = Frame(self.scrollable_frame_cubeview,
+        self.cubeaddress = Frame(self.cubeview_frame,
                                 width=1000, height=100, bd=0)
         self.cubeaddress.grid(sticky=NW)
 
@@ -55,20 +56,20 @@ class wizard_operations():
 
         self.combocolumn.bind("<<ComboboxSelected>>", self.columncallback)
 
-        self.firstlistwidg = self.scrollable_frame_cubeview.winfo_children()
+        self.firstlistwidg = self.cubeview_frame.winfo_children()
 
         for item in self.firstlistwidg:
             if item.winfo_children():
                 self.firstlistwidg.extend(item.winfo_children())
 
-        self.canvasmodel2=canvasmodel2
-        self.scrollable_frame_cubeview2=scrollable_frame_cubeview2;self.df=df;self.obj_df=obj_df
-        self.scrollable_frame_model2=scrollable_frame_model2
-        for widget in self.scrollable_frame_cubeview2.winfo_children():
+        self.result_canvas2=result_canvas2
+        self.cubeview_frame2=cubeview_frame2;self.df=df;self.obj_df=obj_df
+        self.result_frame2=result_frame2
+        for widget in self.cubeview_frame2.winfo_children():
             widget.destroy()
-        label2 = Label(self.scrollable_frame_cubeview2, text=""); label2.grid(row=0,column=0)
+        label2 = Label(self.cubeview_frame2, text=""); label2.grid(row=0,column=0)
 
-        self.cubeaddress2 = Frame(self.scrollable_frame_cubeview2,
+        self.cubeaddress2 = Frame(self.cubeview_frame2,
                                 width=1000, height=100, bd=0)
         self.cubeaddress2.grid(sticky=NW)
 
@@ -104,7 +105,7 @@ class wizard_operations():
         label = Label(self.cubeaddress2, text=""); label.grid(row=3, column=0)
 
         self.combocolumn2.bind("<<ComboboxSelected>>", self.columncallback2)
-        self.firstlistwidg2 = self.scrollable_frame_cubeview2.winfo_children()
+        self.firstlistwidg2 = self.cubeview_frame2.winfo_children()
 
         for item in self.firstlistwidg2:
             if item.winfo_children():
@@ -163,15 +164,15 @@ class wizard_operations():
         self.combocolumn.bind("<<ComboboxSelected>>", self.columncallback)
 
         self.firstlistwidg.append(self.combocolumn)
-        self.dfccbx = wizard_UI_single_dimension(self.root, self.scrollable_frame_cubeview,
-                                                     self.scrollable_frame_model, self.canvasmodel, tabletoshow,
+        self.dfccbx = wizard_UI_single_dimension(self.root, self.cubeview_frame,
+                                                     self.result_frame, self.result_canvas, tabletoshow,
                                                      self.firstlistwidg, self.keycube,
                                                      self.df,self.obj_df,self.comborow.get())
 
     def columncallback(self,eventObject):
         tabletoshow=self.cubesdic[self.combocubes.get()][self.combomat.get()][(self.comborow.get(),self.combocolumn.get())]
         self.twoattcomp='10'
-        self.dfccbx=wizard_UI(self.root,self.scrollable_frame_cubeview,self.scrollable_frame_model, self.canvasmodel, tabletoshow,self.firstlistwidg,self.keycube
+        self.dfccbx=wizard_UI(self.root,self.cubeview_frame,self.result_frame, self.result_canvas, tabletoshow,self.firstlistwidg,self.keycube
                                            ,self.df,self.obj_df,self.comborow.get(),self.combocolumn.get())
 
 
@@ -194,16 +195,16 @@ class wizard_operations():
             self.combocolumn.bind("<<ComboboxSelected>>", self.columncallback)
 
             self.firstlistwidg.append(self.combocolumn)
-            self.dfccbx = wizard_UI_single_dimension(self.root, self.scrollable_frame_cubeview,
-                                                       self.scrollable_frame_model, self.canvasmodel, tabletoshow,
+            self.dfccbx = wizard_UI_single_dimension(self.root, self.cubeview_frame,
+                                                       self.result_frame, self.result_canvas, tabletoshow,
                                                        self.firstlistwidg, self.keycube,
                                                        self.df, self.obj_df, self.comborow.get())
         else:
             tabletoshow = self.cubesdic[self.combocubes.get()][self.combomat.get()][
                 (self.comborow.get(), self.combocolumn.get())]
             self.twoattcomp = '10'
-            self.dfccbx = wizard_UI(self.root, self.scrollable_frame_cubeview, self.scrollable_frame_model,
-                                                 self.canvasmodel, tabletoshow, self.firstlistwidg, self.keycube
+            self.dfccbx = wizard_UI(self.root, self.cubeview_frame, self.result_frame,
+                                                 self.result_canvas, tabletoshow, self.firstlistwidg, self.keycube
                                                  , self.df, self.obj_df, self.comborow.get(), self.combocolumn.get())
 
     def callback2(self,eventObject):
@@ -231,7 +232,7 @@ class wizard_operations():
     def columncallback2(self,eventObject):
         tabletoshow2=self.cubesdic2[self.combocubes2.get()][self.combomat2.get()][(self.comborow2.get(),self.combocolumn2.get())]
         self.twoatt2comp='10'
-        self.dfccbx2=wizard_UI(self.root,self.scrollable_frame_cubeview2,self.scrollable_frame_model2, self.canvasmodel2, tabletoshow2,self.firstlistwidg2,self.keycube2
+        self.dfccbx2=wizard_UI(self.root,self.cubeview_frame2,self.result_frame2, self.result_canvas2, tabletoshow2,self.firstlistwidg2,self.keycube2
                                            ,self.df,self.obj_df,self.comborow2.get(),self.combocolumn2.get())
 
     def rowcallback2(self,eventObject):
@@ -252,8 +253,8 @@ class wizard_operations():
         self.combocolumn2.bind("<<ComboboxSelected>>", self.columncallback2)
         self.firstlistwidg2.append(self.combocolumn2)
 
-        self.dfccbx2 = wizard_UI_single_dimension(self.root, self.scrollable_frame_cubeview2,
-                                                     self.scrollable_frame_model2, self.canvasmodel2, tabletoshow2,
+        self.dfccbx2 = wizard_UI_single_dimension(self.root, self.cubeview_frame2,
+                                                     self.result_frame2, self.result_canvas2, tabletoshow2,
                                                      self.firstlistwidg2, self.keycube2,
                                                      self.df,self.obj_df,self.comborow2.get())
 
@@ -276,16 +277,16 @@ class wizard_operations():
             self.combocolumn2.bind("<<ComboboxSelected>>", self.columncallback2)
             self.firstlistwidg2.append(self.combocolumn2)
 
-            self.dfccbx2 = wizard_UI_single_dimension(self.root, self.scrollable_frame_cubeview2,
-                                                        self.scrollable_frame_model2, self.canvasmodel2, tabletoshow2,
+            self.dfccbx2 = wizard_UI_single_dimension(self.root, self.cubeview_frame2,
+                                                        self.result_frame2, self.result_canvas2, tabletoshow2,
                                                         self.firstlistwidg2, self.keycube2,
                                                         self.df, self.obj_df, self.comborow2.get())
         else:
             tabletoshow2 = self.cubesdic2[self.combocubes2.get()][self.combomat2.get()][
                 (self.comborow2.get(), self.combocolumn2.get())]
             self.twoatt2comp = '10'
-            self.dfccbx2 = wizard_UI(self.root, self.scrollable_frame_cubeview2,
-                                                  self.scrollable_frame_model2, self.canvasmodel2, tabletoshow2,
+            self.dfccbx2 = wizard_UI(self.root, self.cubeview_frame2,
+                                                  self.result_frame2, self.result_canvas2, tabletoshow2,
                                                   self.firstlistwidg2, self.keycube2
                                                   , self.df, self.obj_df, self.comborow2.get(), self.combocolumn2.get())
 
@@ -297,8 +298,8 @@ class wizard_operations():
             self.model.entryedfre2.destroy();self.model.applymodel2.destroy();self.model.exportmodel2.destroy()
         except AttributeError: print("")
 
-        eventlog(self.root, self.dfccbx, self.dfccbx2,self.scrollable_frame_model,
-                            self.scrollable_frame_model2, self.df, self.obj_df, self.twoattcomp, self.twoatt2comp
+        eventlog(self.root, self.dfccbx, self.dfccbx2,self.result_frame,
+                            self.result_frame2, self.df, self.obj_df, self.twoattcomp, self.twoatt2comp
                             , self.combomat.get(), self.combomat2.get())
 
     def showthemodelfre(self):
@@ -309,7 +310,7 @@ class wizard_operations():
             self.model.entryedfre2.destroy();self.model.applymodel2.destroy();self.model.exportmodel2.destroy()
         except AttributeError: print("")
 
-        self.model=MVP_frequency(self.root, self.dfccbx, self.dfccbx2,self.scrollable_frame_model, self.scrollable_frame_model2,
+        self.model=MVP_frequency(self.root, self.dfccbx, self.dfccbx2,self.result_frame, self.result_frame2,
                                        self.df, self.obj_df, self.twoattcomp, self.twoatt2comp,
                                        self.combomat.get(), self.combomat2.get())
 
@@ -321,7 +322,7 @@ class wizard_operations():
             self.model.entryedfre2.destroy();self.model.applymodel2.destroy();self.model.exportmodel2.destroy()
         except AttributeError: print("")
 
-        self.model=MVP_performance(self.root, self.dfccbx, self.dfccbx2,self.scrollable_frame_model, self.scrollable_frame_model2,
+        self.model=MVP_performance(self.root, self.dfccbx, self.dfccbx2,self.result_frame, self.result_frame2,
                                        self.df, self.obj_df, self.twoattcomp, self.twoatt2comp,
                                        self.combomat.get(), self.combomat2.get())
 
@@ -332,7 +333,7 @@ class wizard_operations():
             self.model.nodelabel2.destroy();self.model.entrynofre2.destroy();self.model.edgelabel2.destroy();
             self.model.entryedfre2.destroy();self.model.applymodel2.destroy();self.model.exportmodel2.destroy()
         except AttributeError: print("")
-        self.model=object_centric_petrinet(self.root, self.dfccbx, self.dfccbx2,self.scrollable_frame_model, self.scrollable_frame_model2,
+        self.model=object_centric_petrinet(self.root, self.dfccbx, self.dfccbx2,self.result_frame, self.result_frame2,
                                        self.df, self.obj_df, self.twoattcomp, self.twoatt2comp,
                                        self.combomat.get(), self.combomat2.get())
 

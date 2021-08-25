@@ -11,14 +11,14 @@ from tkinter import filedialog
 
 
 class MVP_frequency():
-    def __init__(self, root, dfccbx, dfccbx2, scrollable_frame_model, scrollable_frame_model2, df,obj_df, twoatt, twoatt2
+    def __init__(self, root, dfccbx, dfccbx2, result_frame, result_frame2, df,obj_df, twoatt, twoatt2
                  , mat1, mat2):
 
         self.root=root
         self.dfccbx=dfccbx
         self.dfccbx2=dfccbx2
-        self.scrollable_frame_model=scrollable_frame_model
-        self.scrollable_frame_model2=scrollable_frame_model2
+        self.result_frame=result_frame
+        self.result_frame2=result_frame2
         self.df=df
         self.obj_df=obj_df
         self.twoatt=twoatt
@@ -27,7 +27,7 @@ class MVP_frequency():
         self.mat2=mat2
 
         #window1
-        _list = self.scrollable_frame_model.winfo_children()
+        _list = self.result_frame.winfo_children()
         for item in _list:
             if item.winfo_children():
                 _list.extend(item.winfo_children())
@@ -57,8 +57,8 @@ class MVP_frequency():
         gviz = visualizer.apply(model, parameters={"min_act_freq": self.minnodefre, "min_edge_freq": self.minedgefre})
         visualizer.save(gviz, "model1.png")
         self.img = Image.open("model1.png");
-        self.picg = ImageTk.PhotoImage(self.img, master=self.scrollable_frame_model);
-        self.panelg = Label(self.scrollable_frame_model, image=self.picg);
+        self.picg = ImageTk.PhotoImage(self.img, master=self.result_frame);
+        self.panelg = Label(self.result_frame, image=self.picg);
         self.panelg.pack()
 
         self.nodelabel = tk.Label(self.root, text="Min Node Frequency:", font=('Helvetica', 8, 'bold'))
@@ -76,7 +76,7 @@ class MVP_frequency():
 
 
         #window2
-        _list = self.scrollable_frame_model2.winfo_children()
+        _list = self.result_frame2.winfo_children()
         for item in _list:
             if item.winfo_children():
                 _list.extend(item.winfo_children())
@@ -109,8 +109,8 @@ class MVP_frequency():
         #visualizer.view(gviz)
         visualizer.save(gviz2, "model2.png")
         self.img2 = Image.open("model2.png");
-        self.picg2 = ImageTk.PhotoImage(self.img2, master=self.scrollable_frame_model2);
-        self.panelg2 = Label(self.scrollable_frame_model2, image=self.picg2);
+        self.picg2 = ImageTk.PhotoImage(self.img2, master=self.result_frame2);
+        self.panelg2 = Label(self.result_frame2, image=self.picg2);
         self.panelg2.pack()
 
         self.nodelabel2 = tk.Label(self.root, text="Min Node Frequency:",font=('Helvetica', 8, 'bold'))
@@ -128,7 +128,7 @@ class MVP_frequency():
 
 
     def showthemodelfrefunc1(self):
-        _list = self.scrollable_frame_model.winfo_children()
+        _list = self.result_frame.winfo_children()
         for item in _list:
             if item.winfo_children():
                 _list.extend(item.winfo_children())
@@ -171,15 +171,15 @@ class MVP_frequency():
         #visualizer.view(gviz)
         visualizer.save(gviz, "model1.png")
         self.img = Image.open("model1.png");
-        self.picg = ImageTk.PhotoImage(self.img, master=self.scrollable_frame_model);
-        self.panelg = Label(self.scrollable_frame_model, image=self.picg);
+        self.picg = ImageTk.PhotoImage(self.img, master=self.result_frame);
+        self.panelg = Label(self.result_frame, image=self.picg);
         self.panelg.pack()
 
 
 
     def showthemodelfrefunc2(self):
         # window2
-        _list = self.scrollable_frame_model2.winfo_children()
+        _list = self.result_frame2.winfo_children()
         for item in _list:
             if item.winfo_children():
                 _list.extend(item.winfo_children())
@@ -221,8 +221,8 @@ class MVP_frequency():
         # visualizer.view(gviz)
         visualizer.save(gviz2, "model2.png")
         self.img2 = Image.open("model2.png");
-        self.picg2 = ImageTk.PhotoImage(self.img2, master=self.scrollable_frame_model2);
-        self.panelg2 = Label(self.scrollable_frame_model2, image=self.picg2);
+        self.picg2 = ImageTk.PhotoImage(self.img2, master=self.result_frame2);
+        self.panelg2 = Label(self.result_frame2, image=self.picg2);
         self.panelg2.pack()
 
 

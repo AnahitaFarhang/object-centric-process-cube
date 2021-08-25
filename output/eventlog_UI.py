@@ -6,7 +6,7 @@ from pm4pymdl.algo.mvp.utils import succint_mdl_to_exploded_mdl, exploded_mdl_to
 
 
 class eventlog_UI(Frame):
-    def __init__(self,root,scrollable_frame_model,df,obj_df):
+    def __init__(self,root,result_frame,df,obj_df):
 
         self.root=root; self.root.iconbitmap(r'cubeicon.ico')
         self.df=df; self.obj_df=obj_df
@@ -17,7 +17,7 @@ class eventlog_UI(Frame):
             del self.df['event_timestamp:month']
             del self.df['event_timestamp:day']
         except KeyError: print("")
-        frame1 = Frame(scrollable_frame_model, highlightbackground="gray", highlightcolor="gray", highlightthickness=1,
+        frame1 = Frame(result_frame, highlightbackground="gray", highlightcolor="gray", highlightthickness=1,
                                width=10, height=10, bd=0)
         self.labeldata = Label(frame1, text='Data: ', font=('Helvetica', 10, 'bold'));
         self.labeldata.grid(row=0,column=0)
@@ -35,7 +35,7 @@ class eventlog_UI(Frame):
         self.combocubes.grid(row=0, column=1)
         self.combocubes.current(0)
         self.combocubes.bind("<<ComboboxSelected>>", self.checkdata)
-        self.frame2 = Frame(scrollable_frame_model, highlightbackground="gray", highlightcolor="gray", highlightthickness=1,
+        self.frame2 = Frame(result_frame, highlightbackground="gray", highlightcolor="gray", highlightthickness=1,
                                width=500, height=400, bd=0)
         self.frame2.grid(row=1,column=0)
         n = list(self.df.columns)

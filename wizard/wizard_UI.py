@@ -3,17 +3,18 @@ import tkinter.font as font
 
 
 class wizard_UI():
-    def __init__(self,root,scrollable_frame_cubeview,scrollable_frame_model, canvasmodel,tabletoshow,firstlistwidg,keycube,succintdf,obj_df,rowname,columnname):
+    def __init__(self, root, cubeview_frame, result_frame, result_canvas, tabletoshow, firstlistwidg,
+                 keycube,succintdf,obj_df,rowname,columnname):
 
-        self.firstobj_df=obj_df;self.first_df=succintdf;self.canvasmodel=canvasmodel
+        self.firstobj_df=obj_df;self.first_df=succintdf;self.result_canvas=result_canvas
         self.root=root;
-        self.scrollable_frame_model=scrollable_frame_model
+        self.result_frame=result_frame
         myFont = font.Font(size=8)
-        self.scrollable_frame_cubeview=scrollable_frame_cubeview
-        listwidg = self.scrollable_frame_cubeview.winfo_children()
+        self.cubeview_frame=cubeview_frame
+        listwidg = self.cubeview_frame.winfo_children()
 
         self.keycube=keycube;self.obj_df=obj_df;self.rowname=rowname;self.columnname=columnname
-        self.cubecellsframe = Frame(self.scrollable_frame_cubeview,
+        self.cubecellsframe = Frame(self.cubeview_frame,
                                 width=1000, height=1000, bd=0)
         self.cubecellsframe.grid(sticky=SW)
 

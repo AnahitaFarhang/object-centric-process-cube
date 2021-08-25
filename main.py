@@ -1,10 +1,10 @@
 from tkinter import *
 from tkinter import filedialog
-from input_UI import input_UI
+from input.input_UI import input_UI
 from pm4pymdl.objects.ocel.importer import importer as ocel_importer
 
 
-class main_input():
+class main():
     def __init__(self):
 
         ## root window configuration
@@ -127,5 +127,4 @@ class main_input():
     def exitfunction(self):
         self.root.destroy()
 
-
-main_input()
+main()

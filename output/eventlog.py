@@ -4,13 +4,13 @@ from output.filter.filter_dimensions import filter_dimensions
 
 
 class eventlog():
-    def __init__(self, root, dfccbx, dfccbx2, scrollable_frame_model, scrollable_frame_model2, df, obj_df, twoatt, twoatt2
+    def __init__(self, root, dfccbx, dfccbx2, result_frame, result_frame2, df, obj_df, twoatt, twoatt2
                  , mat1, mat2):
         self.root=root
         self.dfccbx=dfccbx
         self.dfccbx2=dfccbx2
-        self.scrollable_frame_model=scrollable_frame_model
-        self.scrollable_frame_model2=scrollable_frame_model2
+        self.result_frame=result_frame
+        self.result_frame2=result_frame2
         self.df=df
         self.obj_df=obj_df
         self.twoatt=twoatt
@@ -19,7 +19,7 @@ class eventlog():
         self.mat2=mat2
 
 
-        _list = self.scrollable_frame_model.winfo_children()
+        _list = self.result_frame.winfo_children()
         for item in _list:
             if item.winfo_children():
                 _list.extend(item.winfo_children())
@@ -63,10 +63,10 @@ class eventlog():
                                                          self.dfccbx.eventattrs, self.dfccbx.objectattrs
                                                          , self.mat1).fildf
 
-        eventlog_UI(self.root, self.scrollable_frame_model, self.fildf, self.obj_df)
+        eventlog_UI(self.root, self.result_frame, self.fildf, self.obj_df)
 
 
-        _list = self.scrollable_frame_model2.winfo_children()
+        _list = self.result_frame2.winfo_children()
         for item in _list:
             if item.winfo_children():
                 _list.extend(item.winfo_children())
@@ -110,4 +110,4 @@ class eventlog():
                                                          self.dfccbx2.eventattrs, self.dfccbx2.objectattrs
                                                          , self.mat2).fildf
 
-        eventlog_UI(self.root, self.scrollable_frame_model2, self.fildf2, self.obj_df)
+        eventlog_UI(self.root, self.result_frame2, self.fildf2, self.obj_df)
