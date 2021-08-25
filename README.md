@@ -6,8 +6,22 @@ This project introduces a stand-alone object-centric process cube tool built on 
     - Visualizing the extracted OCEL: The user can see the extracted event log from process cube operations. Furthure, the information of objects are shown in separate tables.
     - Discovering an MVP  model : It is possible to discover (frequency/performace annotated) [MVP models](https://arxiv.org/pdf/2001.02562.pdf) from extracted OCEL which shows the process model with all the objects involved in that.
     - Dicoveying an Object-Centric Petri Net: It is possible to discover an[Object-Centric Petri Nets](https://arxiv.org/pdf/2010.02047.pdf) from extracted OCEL which shows the Petri Net with all the objects involved in that.  
-- Output
+- Output: In  this module,  we  compare the the  extracted event logs/ MVP  models/ Object-Centric Petri Nets  of  the  selected  cells  with each other. The prcocess models of the selected slices/dices are configured side-by-side that makes the comparison easy.
 ## Requirements
 ## Usage
+To run the program these libraries needs to be installed beforehand:
+```
+def hello
+   puts "Hello world!"
+end
+```
+
+docker pull m4jid/ppdp-pm-v2
+docker run -d -p 8000:8000 m4jid/ppdp-pm-v2
+Note that for using docker commands, first you need to install Docker accourding to your operation system.
+
+After running the docker, use your browser and enter the following address to run the web-based application: http://127.0.0.1:8000/
+
+
 
 
