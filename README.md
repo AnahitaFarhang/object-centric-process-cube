@@ -8,7 +8,7 @@ This project introduces a stand-alone object-centric process cube tool built on 
     - Dicoveying an Object-Centric Petri Net: It is possible to discover an[Object-Centric Petri Nets](https://arxiv.org/pdf/2010.02047.pdf) from extracted OCEL which shows the Petri Net with all the objects involved in that.  
 - Output: In  this module,  we  compare the the  extracted event logs/ MVP  models/ Object-Centric Petri Nets  of  the  selected  cells  with each other. The prcocess models of the selected slices/dices are configured side-by-side that makes the comparison easy.
 ## Requirements
-To run the program the libraries that are explained in  [requirements file ](https://github.com/AnahitaFarhang/object-centric-process-cube/tree/main/Requirements.txt) need to be installed beforehand:
+To run the program the libraries that are explained in  [requirements file ](https://github.com/AnahitaFarhang/object-centric-process-cube/blob/main/requirements.txt) need to be installed beforehand:
 ```
 Numpy  1.18.0
 Tk 0.1.0
