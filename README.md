@@ -1,1 +1,0 @@
-# object-centric-process-cubeyuyuy
