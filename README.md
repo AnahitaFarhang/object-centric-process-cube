@@ -10,15 +10,15 @@ This project introduces a stand-alone object-centric process cube tool built on 
 ## Requirements
 To run the application the packages that are specified in  [requirements file ](https://github.com/AnahitaFarhang/object-centric-process-cube/blob/main/requirements.txt) need to be installed on your local system beforehand. These commands are required to run the main program:
 ```
-Numpy  1.18.0
-Tk 0.1.0
-pm4pymdl 0.0.36
-Pillow 8.2.0
-Tkfilebrowser  2.3.2
-Pandastable  0.12.2.post1
-Pandas  1.1.4
-Toolz  0.11.1
-Tkreadonly 0.6.1
+Numpy==1.18.0
+Tk==0.1.0
+pm4pymdl==0.0.36
+Pillow==8.2.0
+Tkfilebrowser==2.3.2
+Pandastable==0.12.2.post1
+Pandas==1.1.4
+Toolz==0.11.1
+Tkreadonly==0.6.1
 
 ```
 
