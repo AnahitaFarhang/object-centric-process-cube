@@ -7,3 +7,4 @@ Pandastable==0.12.2.post1
 Pandas==1.1.4
 Toolz==0.11.1
 Tkreadonly==0.6.1
+jsonschema

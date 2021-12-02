@@ -26,7 +26,13 @@ Tkreadonly==0.6.1
 To run the program, you need only to run the [main module](https://github.com/AnahitaFarhang/object-centric-process-cube/blob/main/main.py).
 
 
+### Running in Visual Studio remote Docker container on Mac
+Install XQuartz and socat and execute the following commands to make the display available on the network:
+```
+open -a XQuartz
+socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
+```
 
+In `.devcontainter/devcontainer.json` replace the IP in `DISPLAY` variable under `containerEnv` with the IP of your machine and restart the docker image. You can also simple execute `export DISPLAY=YOUR_IP:0` in the terminal before you execute `python main.py`.
 
-
-
+With the remote development extension installed in Microsoft Visual Studio Code, open the project folder as remote container. It will automatically build the container with all requirements and you can run the application using `python main.py` in the terminal of Visual Studio Code.
